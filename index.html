@@ -617,6 +617,90 @@
 
   footer strong { color: white; }
 
+  /* ── FACILITIES ── */
+  .facilities {
+    padding: 100px 5%;
+    background: var(--cream);
+  }
+
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .facility-group {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .facility-group:hover {
+    box-shadow: 0 8px 32px rgba(13,74,52,0.08);
+  }
+
+  .facility-group-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1.4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .facility-group-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-light));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .facility-group-header h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .facility-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 1.1rem;
+  }
+
+  .facility-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+
+  .check {
+    width: 22px; height: 22px;
+    background: rgba(13,74,52,0.1);
+    color: var(--green-mid);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .facility-list strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+  }
+
+  .facility-list p {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -796,7 +880,7 @@
       <div class="stars">★★★★☆</div>
       <p>Based on 102 Google Reviews</p>
       <br>
-      <a href="https://www.google.com/maps/place/Good+Life+Hospital/@12.8735714,80.2243682,1123m/data=!3m1!1e3!4m8!3m7!1s0x3a525b407153dec5:0x386cd65de2d372a6!8m2!3d12.8735714!4d80.2269431!9m1!1b1!16s%2Fg%2F11lff5hjb3?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D target="_blank" class="btn-primary" style="font-size:0.85rem; padding:10px 20px;">View All Reviews ↗</a>
+      <a href="https://maps.google.com" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:10px 20px;">View All Reviews ↗</a>
     </div>
     <div class="review-card">
       <div class="stars">★★★★★</div>
@@ -874,6 +958,94 @@
         title="Good Life Hospital Location Map">
       </iframe>
     </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities">
+  <div class="section-header">
+    <div class="section-tag">Hospital Facilities</div>
+    <h2>Designed for Your Comfort & Convenience</h2>
+    <p>We've ensured that visiting Good Life Hospital is easy and comfortable for everyone, including those with special needs.</p>
+  </div>
+  <div class="facilities-grid">
+
+    <div class="facility-group">
+      <div class="facility-group-header">
+        <div class="facility-group-icon">♿</div>
+        <h3>Accessibility</h3>
+      </div>
+      <ul class="facility-list">
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>Wheelchair-Accessible Car Park</strong>
+            <p>Dedicated accessible parking spaces close to the entrance for patients with mobility needs.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>Wheelchair-Accessible Entrance</strong>
+            <p>Step-free entry to the hospital, ensuring smooth access for wheelchair users and those with limited mobility.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="facility-group">
+      <div class="facility-group-header">
+        <div class="facility-group-icon">🏢</div>
+        <h3>Amenities</h3>
+      </div>
+      <ul class="facility-list">
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>Gender-Neutral Toilets</strong>
+            <p>Inclusive restroom facilities available for all patients and visitors within the hospital premises.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="facility-group-header" style="margin-top: 1.8rem;">
+        <div class="facility-group-icon">💳</div>
+        <h3>Payments</h3>
+      </div>
+      <ul class="facility-list">
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>NFC Mobile Payments</strong>
+            <p>Pay conveniently using Google Pay, PhonePe, Apple Pay, or any NFC-enabled mobile wallet.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="facility-group">
+      <div class="facility-group-header">
+        <div class="facility-group-icon">🅿️</div>
+        <h3>Parking</h3>
+      </div>
+      <ul class="facility-list">
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>Free Street Parking</strong>
+            <p>Complimentary street parking available right outside the hospital — no parking fees.</p>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div>
+            <strong>On-Site Parking</strong>
+            <p>Dedicated on-premise parking area for patients and visitors for added convenience.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
