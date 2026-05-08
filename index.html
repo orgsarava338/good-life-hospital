@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Life Hospital – OMR, Chennai</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #0d4a34;
+    --green-mid: #1a6b4a;
+    --green-light: #2d8f64;
+    --gold: #c8973a;
+    --gold-light: #e5b96a;
+    --cream: #fdf8f0;
+    --cream-dark: #f5ede0;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13, 74, 52, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    border-bottom: 1px solid rgba(200, 151, 58, 0.3);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .nav-logo .cross {
+    width: 28px; height: 28px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: white; font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 500 !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); color: white !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 50%, #1e5c3e 100%);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(200,151,58,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,151,58,0.2);
+    border: 1px solid rgba(200,151,58,0.4);
+    color: var(--gold-light);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold-light);
+  }
+
+  .hero-desc {
+    color: rgba(255,255,255,0.72);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-primary:hover { background: #d4a440; transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-stat {
+    background: rgba(0,0,0,0.2);
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+
+  .hero-stat strong {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .hero-stat span {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* hero right card */
+  .hero-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .info-row {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 1.2rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .info-icon {
+    width: 36px; height: 36px;
+    background: rgba(200,151,58,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+
+  .info-value {
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .open-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(74,222,128,0.15);
+    border: 1px solid rgba(74,222,128,0.3);
+    color: #4ade80;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  /* ── SERVICES ── */
+  .services {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: rgba(13,74,52,0.08);
+    color: var(--green-mid);
+    padding: 5px 16px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-header p {
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(13,74,52,0.1);
+    border-color: rgba(13,74,52,0.15);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-light));
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ── WHY US ── */
+  .why-us {
+    padding: 100px 5%;
+    background: var(--green-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-us::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 60%; padding-top: 60%;
+    background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .why-us .section-tag { background: rgba(200,151,58,0.15); color: var(--gold-light); }
+
+  .why-us .section-header h2 { color: white; }
+
+  .why-us .section-header p { color: rgba(255,255,255,0.6); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+
+  .why-item {
+    display: flex; flex-direction: column; gap: 0.8rem;
+    padding: 1.8rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    transition: background 0.2s;
+  }
+
+  .why-item:hover { background: rgba(255,255,255,0.08); }
+
+  .why-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .why-item h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+  }
+
+  .why-item p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews {
+    padding: 100px 5%;
+    background: var(--cream-dark);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.8rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+
+  .review-card:hover { transform: translateY(-3px); }
+
+  .stars {
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .review-card p {
+    color: var(--text-mid);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    font-style: italic;
+  }
+
+  .reviewer {
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .reviewer strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    display: block;
+  }
+
+  .reviewer span {
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+
+  .rating-summary {
+    background: var(--green-dark);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    text-align: center;
+  }
+
+  .rating-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+
+  .rating-summary .stars { font-size: 1.1rem; margin-bottom: 0; }
+
+  .rating-summary p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+  }
+
+  /* ── LOCATION ── */
+  .location {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+
+  .location-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .location-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .location-info > p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 1rem 1.2rem;
+    background: var(--cream);
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+    border: 1px solid rgba(0,0,0,0.04);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .contact-item:hover { border-color: var(--green-light); }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: var(--green-dark);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item strong {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+  }
+
+  .contact-item span {
+    font-size: 0.92rem;
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  .map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.06);
+    height: 380px;
+    background: #e8f0eb;
+    position: relative;
+  }
+
+  .map-container iframe {
+    width: 100%; height: 100%;
+    border: none;
+    filter: saturate(0.9);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.6);
+    padding: 3rem 5%;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  footer strong { color: white; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-card { display: none; }
+    .location-wrapper { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="cross">+</div>
+    Good Life Hospital
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="tel:07358763701" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Open 24 Hours · Emergency Care Available
+      </div>
+      <h1>Care You Can Trust, <em>Available Always</em></h1>
+      <p class="hero-desc">
+        Good Life Hospital on OMR, Chennai — providing quality healthcare with experienced doctors, modern diagnostics, and compassionate nursing care, round the clock.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:07358763701" class="btn-primary">📞 Call 073587 63701</a>
+        <a href="#location" class="btn-outline">📍 Get Directions</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>24/7</strong>
+          <span>Always Open</span>
+        </div>
+        <div class="hero-stat">
+          <strong>3.8★</strong>
+          <span>102 Reviews</span>
+        </div>
+        <div class="hero-stat">
+          <strong>OMR</strong>
+          <span>Semmancheri</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Hospital Information</h3>
+      <div class="info-row">
+        <div class="info-icon">🏥</div>
+        <div>
+          <div class="info-label">Hospital</div>
+          <div class="info-value">Good Life Hospital</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Address</div>
+          <div class="info-value">No.3/87-A, Rajiv Gandhi Salai (OMR),<br>opp. Sathyabama University,<br>Semmancheri, Chennai – 600119</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">🕐</div>
+        <div>
+          <div class="info-label">Working Hours</div>
+          <div class="info-value">
+            <span class="open-badge"><span style="width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;"></span> Open 24 Hours</span>
+          </div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Phone</div>
+          <div class="info-value">073587 63701</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-tag">Our Services</div>
+    <h2>Comprehensive Medical Care Under One Roof</h2>
+    <p>From emergency consultations to diagnostic tests, we provide a full range of healthcare services to keep you and your family healthy.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🚨</div>
+      <h3>Emergency Care</h3>
+      <p>Round-the-clock emergency medical services with trained doctors and staff ready to handle critical cases at any hour.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌡️</div>
+      <h3>Fever Treatment</h3>
+      <p>Quick diagnosis and effective treatment for fever, infections, and related conditions with proper care and monitoring.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Blood Tests</h3>
+      <p>In-house blood test facility for accurate and timely diagnostic results to guide the right treatment plan.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🩻</div>
+      <h3>X-Ray Imaging</h3>
+      <p>On-site X-ray facility for fast imaging diagnostics, helping doctors make informed clinical decisions quickly.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💉</div>
+      <h3>IV Fluids & Drips</h3>
+      <p>Intravenous therapy administered by experienced nurses in a clean, monitored environment for rapid recovery.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦴</div>
+      <h3>Back Pain Treatment</h3>
+      <p>Diagnosis and treatment of back pain conditions with appropriate medication and therapeutic guidance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="section-header" style="position:relative;z-index:1;">
+    <div class="section-tag">Why Choose Us</div>
+    <h2>Trusted by the OMR Community</h2>
+    <p>Patients from Semmancheri and surrounding areas choose Good Life Hospital for quality care they can rely on.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">24/7</div>
+      <h3>Always Available</h3>
+      <p>Our doctors and nurses are available around the clock, every day of the year — no waiting for emergencies.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">102+</div>
+      <h3>Patient Reviews</h3>
+      <p>Over a hundred verified reviews from real patients on Google, reflecting years of community trust and care.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">100%</div>
+      <h3>Patient Satisfaction</h3>
+      <p>"Overall 100% satisfied" — as shared by our patients, our goal is always your complete recovery and comfort.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">₹</div>
+      <h3>Affordable Pricing</h3>
+      <p>Quality medical care at prices that are accessible for every family — because good health shouldn't break the bank.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-header">
+    <div class="section-tag">Patient Reviews</div>
+    <h2>What Our Patients Say</h2>
+    <p>Real experiences from real patients who trusted us with their health.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="rating-summary">
+      <div class="rating-big">3.8</div>
+      <div class="stars">★★★★☆</div>
+      <p>Based on 102 Google Reviews</p>
+      <br>
+      <a href="https://maps.google.com" target="_blank" class="btn-primary" style="font-size:0.85rem; padding:10px 20px;">View All Reviews ↗</a>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"It is a wonderful hospital with good care and treatment. The nurses were very good and polite. Overall 100% satisfied."</p>
+      <div class="reviewer">
+        <div class="avatar" style="background:#1a6b4a;">MM</div>
+        <div>
+          <strong>Madhu Mitha</strong>
+          <span>4 months ago</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"I went here for an emergency and the doctor was very good in handling me with great care. X-ray was available and I got cured very fast. The nurses were wonderful."</p>
+      <div class="reviewer">
+        <div class="avatar" style="background:#c8973a;">M</div>
+        <div>
+          <strong>Madhu Madhu</strong>
+          <span>4 months ago</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"It's a wonderful hospital with good treatment and care. 24-hour doctors are available here — great for emergencies at any time of the night."</p>
+      <div class="reviewer">
+        <div class="avatar" style="background:#0d4a34;">RR</div>
+        <div>
+          <strong>Ranjitha Ranjitha</strong>
+          <span>2 months ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location-wrapper">
+    <div class="location-info">
+      <h2>Find Us on OMR</h2>
+      <p>Conveniently located on Rajiv Gandhi Salai (Old Mahabalipuram Road), opposite Sathyabama University, making us easily accessible for residents across Semmancheri, Sholinganallur, and nearby areas.</p>
+      <a href="tel:07358763701" class="contact-item" style="color:inherit;">
+        <div class="contact-icon">📞</div>
+        <div>
+          <strong>Phone</strong>
+          <span>073587 63701</span>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <strong>Address</strong>
+          <span>No.3/87-A, Rajiv Gandhi Salai (OMR), opp. Sathyabama University, Semmancheri, Chennai – 600119</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <strong>Hours</strong>
+          <span>Open 24 Hours · 7 Days a Week</span>
+        </div>
+      </div>
+      <br>
+      <a href="https://maps.google.com/?q=Good+Life+Hospital+Semmancheri+Chennai" target="_blank" class="btn-primary">
+        📍 Open in Google Maps
+      </a>
+    </div>
+    <div class="map-container">
+      <iframe
+        src="https://maps.google.com/maps?q=Good+Life+Hospital,+Rajiv+Gandhi+Salai,+Semmancheri,+Chennai,+Tamil+Nadu+600119&output=embed"
+        allowfullscreen
+        loading="lazy"
+        title="Good Life Hospital Location Map">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Good Life Hospital</strong></p>
+  <p>No.3/87-A, Rajiv Gandhi Salai (OMR), opp. Sathyabama University, Semmancheri, Chennai – 600119</p>
+  <p>📞 073587 63701 &nbsp;|&nbsp; Open 24 Hours</p>
+  <br>
+  <p style="font-size:0.78rem; opacity:0.5;">© 2025 Good Life Hospital. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
